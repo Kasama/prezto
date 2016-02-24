@@ -107,6 +107,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
+KASAMA
+------
+
+Add a symlink from .zshenv to .zprezto/runcoms/zshenv
+
 [1]: http://www.zsh.org
 [2]: http://i.imgur.com/nrGV6pg.png "sorin theme"
 [3]: http://git-scm.com
