@@ -42,7 +42,7 @@ CURVY="\u2771"
 # show prompt line start
 prompt_prompt() {
 	#TODO change here
-	print -n "\n%{%k%F{green}%}%{%K{black}%} EDITAR O GIT COISO $GEAR %{%k%F{black}%}%{%k%}$SEGMENT_SEPARATOR"
+	print -n "\n%{%k%F{green}%}%{%K{black}%} $GEAR %{%k%F{black}%}%{%k%}$SEGMENT_SEPARATOR%F{white}"
 }
 
 # Begin a segment
