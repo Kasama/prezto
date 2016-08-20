@@ -1,5 +1,6 @@
 # add Cargo packages to path
 path=($HOME/.cargo/bin $path)
+export RUST_SRC_PATH=/usr/local/src/rust/src
 
 #if (( $+commands[bundle] )); then
   #alias rbb='bundle'
