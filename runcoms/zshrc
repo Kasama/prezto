@@ -4,14 +4,28 @@
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
+HISTFILE=~/.histfile
+HISTSIZE=9999
+SAVEHIST=9999
+bindkey -v
+
+if [ -f "${ZDOTDIR:-$HOME}/runcoms/aliases" ]; then
+	source "${ZDOTDIR:-$HOME}/runcoms/aliases" 
+fi
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+	source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
+#The fuck
+eval $(thefuck --alias fuck)
 
-if [[ -s "${ZDOTDIR:-$HOME}/.aliases" ]]; then
-  source "${ZDOTDIR:-$HOME}/.aliases"
-fi
+mind.blow()
+	poweroff
+
+#######################################
+# turn off tracing
+#unsetopt xtrace
+# restore stderr to the value saved in FD 3
+#exec 2>&3 3>&-
