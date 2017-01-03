@@ -26,7 +26,7 @@
 # A few utility functions to make it easy and re-usable to draw segmented prompts
 
 CURRENT_BG='NONE'
-PRIMARY_FG=black
+PRIMARY_FG=white
 
 # Characters
 SEGMENT_SEPARATOR="\ue0b0"
@@ -44,7 +44,7 @@ NEED_PULL="⇣"
 # show prompt line start
 prompt_prompt() {
 	#TODO change here
-	print -n "\n%{%k%F{green}%}%{%K{black}%} $GEAR %{%k%F{black}%}%{%k%}$SEGMENT_SEPARATOR%F{white}"
+	print -n "\n%{%k%F{green}%}%{%K{$PRIMARY_FG}%} $GEAR %{%k%F{$PRIMARY_FG}%}%{%k%}$SEGMENT_SEPARATOR%F{white}"
 }
 
 # Begin a segment
