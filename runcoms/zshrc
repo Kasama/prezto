@@ -9,8 +9,8 @@ HISTSIZE=9999
 SAVEHIST=9999
 bindkey -v
 
-if [ -f "${ZDOTDIR:-$HOME}/runcoms/aliases" ]; then
-	source "${ZDOTDIR:-$HOME}/runcoms/aliases" 
+if [ -f "${ZDOTDIR:-$HOME}/.zprezto/runcoms/aliases" ]; then
+	source "${ZDOTDIR:-$HOME}/.zprezto/runcoms/aliases" 
 fi
 
 # Source Prezto.
