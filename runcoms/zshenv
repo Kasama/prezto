@@ -15,6 +15,11 @@ if which ruby >/dev/null && which gem >/dev/null; then
 	PATH="$PATH:$(ruby -rubygems -e 'puts Gem.user_dir')/bin"
 fi
 
+# NodeJS jshint
+if which npm >/dev/null; then
+	PATH="$PATH:$(npm root)/jshint/bin"
+fi
+
 # Heroku
 if which heroku >/dev/null; then
 	PATH="$PATH:/usr/local/heroku/bin"

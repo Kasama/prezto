@@ -19,7 +19,9 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 #The fuck
-eval $(thefuck --alias fuck)
+if $(which fuck 2>&1 1>/dev/null); then
+	eval $(thefuck --alias fuck)
+fi
 
 mind.blow()
 	poweroff
