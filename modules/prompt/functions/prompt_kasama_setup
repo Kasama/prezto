@@ -44,7 +44,13 @@ NEED_PULL="⇣"
 # show prompt line start
 prompt_prompt() {
 	#TODO change here
-	print -n "\n%{%k%F{green}%}%{%K{$PRIMARY_FG}%} $GEAR %{%k%F{$PRIMARY_FG}%}%{%k%}$SEGMENT_SEPARATOR%F{white}"
+	local color
+	if [[ $RETVAL -ne 0 ]]; then
+		color="red"
+	else;
+		color="green"
+	fi
+	print -n "\n%{%k%F{$color}%}%{%K{$PRIMARY_FG}%} $GEAR %{%k%F{$PRIMARY_FG}%}%{%k%}$SEGMENT_SEPARATOR%F{white}"
 }
 
 # Begin a segment
@@ -80,9 +86,14 @@ prompt_end() {
 # Context: user@hostname (who am I and where am I)
 prompt_context() {
 	local user=`whoami`
+	local virtualenv=""
+	if [[ -d "$VIRTUAL_ENV" ]]; then
+		virtualenv="%F{cyan}(vEnv) "
+	fi
 
 	if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CONNECTION" ]]; then
-		prompt_segment $PRIMARY_FG default " %(!.%{%F{yellow}%}.)%m "
+		#prompt_segment $PRIMARY_FG default " %(!.%{%F{yellow}%}.)%m $virtualenv"
+		prompt_segment $PRIMARY_FG default " %(!.%{%F{yellow}%}.)%m $virtualenv"
 	fi
 }
 

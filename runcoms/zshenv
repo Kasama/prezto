@@ -31,5 +31,8 @@ if [[ -d SCRIPTS_PATH ]]; then
 	PATH="$PATH:$SCRIPTS_PATH"
 fi
 
+# SSH agent
+eval `ssh-agent -s`
+
 VIMRC="~/.config/nvim/init.vim"
 export __GLVND_DISALLOW_PATCHING=1
