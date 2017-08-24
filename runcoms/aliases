@@ -22,3 +22,6 @@ alias open='rifle'
 alias octave='octave -q --no-gui'
 alias kaboom='poweroff'
 alias amdgpu='DRI_PRIME=1'
+
+# Git
+alias ga='git add .'

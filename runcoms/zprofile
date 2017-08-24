@@ -47,6 +47,14 @@ path=(
 $path
 )
 
+# Composer binaries
+if which php >/dev/null && which composer >/dev/null; then
+	path=(
+	$HOME/.config/composer/vendor/bin
+	$path
+	)
+fi
+
 # Ruby gems
 if which ruby >/dev/null && which gem >/dev/null; then
 	path=(
