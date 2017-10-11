@@ -28,6 +28,8 @@ alias clip='xclip -selection clipboard'
 alias logica='ssh -p 2222 roberto@logica.dyndns.info'
 alias casaecafe-sandbox='ssh -i ~/.ssh/backend-instances.pem ubuntu@ec2-52-34-177-42.us-west-2.compute.amazonaws.com'
 alias casaecafe-qa='ssh -i ~/.ssh/backend-instances.pem ubuntu@ec2-52-88-150-93.us-west-2.compute.amazonaws.com'
+alias casaecafe-prod='ssh -i ~/.ssh/prod-instances.pem docker@ec2-34-213-236-26.us-west-2.compute.amazonaws.com'
+alias casaecafe-jenkins='ssh -i ~/.ssh/jenkins-instance.pem ubuntu@ec2-52-26-124-174.us-west-2.compute.amazonaws.com'
 
 # Git
 alias ga='git add .'
