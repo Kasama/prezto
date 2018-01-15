@@ -59,10 +59,10 @@ fi
 # Ruby gems
 if which ruby >/dev/null && which gem >/dev/null; then
 	path=(
-	`ruby -rubygems -e 'puts Gem.user_dir'`/bin
+	`ruby -e 'puts Gem.user_dir'`/bin
 	$path
 	)
-	#PATH="$PATH:$(ruby -rubygems -e 'puts Gem.user_dir')/bin"
+	#PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 fi
 
 # NodeJS jshint
