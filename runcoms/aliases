@@ -3,13 +3,8 @@ alias cd..='cd ..'
 alias tint2restart='killall -SIGUSR1 tint2'
 alias wpa_supplicant='sudo wpa_supplicant'
 alias reboot='sudo reboot'
-alias ll='ls --color=always -l -h --show-control-chars'
-alias la='ls --color=always -a -h --show-control-chars'
-alias lla='ls --color=always -lah --show-control-chars'
 alias cls='reset'
 alias clear='reset'
-alias l='ls --color=always --show-control-chars'
-alias d='docker'
 alias grep='grep --color=always'
 alias halt='sudo systemctl halt'
 alias ccsm='LC_ALL="en_US.UTF-8" ccsm'
@@ -24,12 +19,19 @@ alias kaboom='poweroff'
 alias amdgpu='DRI_PRIME=1'
 alias clip='xclip -selection clipboard'
 
+# ls
+alias l='ls --color=always --show-control-chars'
+alias ll='ls --color=always -l -h --show-control-chars'
+alias la='ls --color=always -a -h --show-control-chars'
+alias lla='ls --color=always -lah --show-control-chars'
+
+# Single Letter commands
+alias d='docker'
+alias k='kubectl'
+alias f='fuck'
+
 # SSH
 alias logica='ssh -p 2222 roberto@logica.dyndns.info'
-alias casaecafe-sandbox='ssh -i ~/.ssh/backend-instances.pem ubuntu@ec2-52-34-177-42.us-west-2.compute.amazonaws.com'
-alias casaecafe-qa='ssh -i ~/.ssh/backend-instances.pem ubuntu@ec2-52-88-150-93.us-west-2.compute.amazonaws.com'
-alias casaecafe-prod='ssh -i ~/.ssh/prod-instances.pem docker@ec2-34-213-236-26.us-west-2.compute.amazonaws.com'
-alias casaecafe-jenkins='ssh -i ~/.ssh/jenkins-instance.pem ubuntu@ec2-52-26-124-174.us-west-2.compute.amazonaws.com'
 
 # Git
 alias ga='git add .'
