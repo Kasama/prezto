@@ -35,6 +35,15 @@ eval `ssh-agent -s` 2>&1 1>/dev/null
 mind.blow()
 	poweroff
 
+# Curl JSON
+jcurl() {
+  /bin/curl $@ | jq .
+}
+
+myip() {
+  curl v4.ifconfig.co
+}
+
 #######################################
 # turn off tracing
 #unsetopt xtrace
