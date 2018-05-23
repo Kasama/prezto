@@ -13,33 +13,30 @@ if [ -f "${ZDOTDIR:-$HOME}/.zprezto/runcoms/aliases" ]; then
 	source "${ZDOTDIR:-$HOME}/.zprezto/runcoms/aliases"
 fi
 
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-	source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-
-# Undistract Me
-if [ -f "/usr/share/undistract-me/long-running.bash" ]; then
-	source /usr/share/undistract-me/long-running.bash
-	notify_when_long_running_commands_finish_install
-fi
+# Undistract Me (Broken)
+#if [ -f "/usr/share/undistract-me/long-running.bash" ]; then
+#	source /usr/share/undistract-me/long-running.bash
+#	notify_when_long_running_commands_finish_install 2>> ~/.mylog
+#fi
 
 #The fuck
-if $(which fuck 2>&1 1>/dev/null); then
-	eval $(thefuck --alias fuck)
+if $(which thefuck 2>&1 1>/dev/null); then
+	eval $(thefuck --alias)
 fi
 
 # SSH agent
 eval `ssh-agent -s` 2>&1 1>/dev/null
 
-mind.blow()
+mind.blow() {
 	poweroff
+}
 
 # Curl JSON
 jcurl() {
   /bin/curl $@ | jq .
 }
 
+# Get my ip
 myip() {
   curl v4.ifconfig.co
 }
@@ -49,3 +46,8 @@ myip() {
 #unsetopt xtrace
 # restore stderr to the value saved in FD 3
 #exec 2>&3 3>&-
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+	source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi

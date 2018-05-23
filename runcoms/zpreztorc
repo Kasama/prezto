@@ -44,6 +44,7 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'utility' \
   'completion' \
+  'fzf-prezto' \
   'git' \
   'syntax-highlighting' \
   'history-substring-search' \

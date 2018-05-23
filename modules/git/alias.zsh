@@ -179,3 +179,13 @@ alias gwc='git clean -n'
 alias gwC='git clean -f'
 alias gwx='git rm -r'
 alias gwX='git rm -rf'
+
+# Custom/Special
+alias gst='git status'
+ga() {
+  if [ $# -lt 1 ]; then
+    git add .
+  else
+    git add $@
+  fi
+}

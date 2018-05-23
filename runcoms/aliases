@@ -34,5 +34,11 @@ alias f='fuck'
 alias logica='ssh -p 2222 roberto@logica.dyndns.info'
 
 # Git
-alias ga='git add .'
+ga() {
+  if [ $# -lt 1 ]; then
+    git add .
+  else
+    git add $@
+  fi
+}
 alias gst='git status'
