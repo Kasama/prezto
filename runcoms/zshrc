@@ -41,6 +41,10 @@ myip() {
   curl v4.ifconfig.co
 }
 
+tmpdir() {
+  cd $(mktemp -d)
+}
+
 #######################################
 # turn off tracing
 #unsetopt xtrace
