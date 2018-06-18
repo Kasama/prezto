@@ -20,7 +20,7 @@ fi
 export EDITOR='nvim'
 export VISUAL='nvim'
 export PAGER='less'
-export TERMINAL='termite'
+export TERMINAL='kitty'
 
 #
 # Language
@@ -119,4 +119,4 @@ fi
 
 TMPPREFIX="${TMPDIR%/}/zsh"
 
-export TERM=screen-256color
+export TERM=tmux-256color
