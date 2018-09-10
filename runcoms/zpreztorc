@@ -41,13 +41,12 @@ zstyle ':prezto:*:*' color 'yes'
 #   'prompt'
 zstyle ':prezto:load' pmodule \
   'directory' \
-  'spectrum' \
   'utility' \
   'completion' \
-  'fzf-prezto' \
   'git' \
   'syntax-highlighting' \
   'history-substring-search' \
+  'autosuggestions' \
   'prompt'
 
 #

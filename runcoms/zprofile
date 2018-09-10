@@ -21,6 +21,7 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 export PAGER='less'
 export TERMINAL='kitty'
+export GOPATH="$HOME/documents/programming/GO"
 
 #
 # Language
@@ -48,6 +49,14 @@ path=(
 ~/.local/{bin,sbin}
 $path
 )
+
+# Go binaries
+if [ -d $GOPATH/bin/ ]; then
+  path=(
+  $GOPATH/bin
+  $path
+  )
+fi
 
 # Composer binaries
 if which php >/dev/null && which composer >/dev/null; then

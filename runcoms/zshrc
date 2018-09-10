@@ -9,15 +9,15 @@ HISTSIZE=9999
 SAVEHIST=9999
 bindkey -v
 
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+	source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Source my aliases
 if [ -f "${ZDOTDIR:-$HOME}/.zprezto/runcoms/aliases" ]; then
 	source "${ZDOTDIR:-$HOME}/.zprezto/runcoms/aliases"
 fi
-
-# Undistract Me (Broken)
-#if [ -f "/usr/share/undistract-me/long-running.bash" ]; then
-#	source /usr/share/undistract-me/long-running.bash
-#	notify_when_long_running_commands_finish_install 2>> ~/.mylog
-#fi
 
 #The fuck
 if $(which thefuck 2>&1 1>/dev/null); then
@@ -51,7 +51,15 @@ tmpdir() {
 # restore stderr to the value saved in FD 3
 #exec 2>&3 3>&-
 
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-	source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+# FZF
+if which fzf >/dev/null 2>&1; then
+  source /usr/share/fzf/key-bindings.zsh
+  source /usr/share/fzf/completion.zsh
+  if which bat >/dev/null 2>&1; then
+    PREVIEW='bat --style=plain --color=always --line-range :40 {}'
+  else
+    PREVIEW='head -40 {}'
+  fi
+
+  export FZF_CTRL_T_OPTS="--height 50% --reverse --border --preview '([[ -d {}  ]] && ls --color=always {}) || (( false && (echo {} is a binary file)) || ($PREVIEW))'"
 fi
