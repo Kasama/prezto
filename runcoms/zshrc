@@ -53,8 +53,8 @@ tmpdir() {
 
 # FZF
 if which fzf >/dev/null 2>&1; then
-  source /usr/share/fzf/key-bindings.zsh
-  source /usr/share/fzf/completion.zsh
+  [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+  [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
   if which bat >/dev/null 2>&1; then
     PREVIEW='bat --style=plain --color=always --line-range :40 {}'
   else
@@ -63,3 +63,7 @@ if which fzf >/dev/null 2>&1; then
 
   export FZF_CTRL_T_OPTS="--height 50% --reverse --border --preview '([[ -d {}  ]] && ls --color=always {}) || (( false && (echo {} is a binary file)) || ($PREVIEW))'"
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

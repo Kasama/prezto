@@ -5,13 +5,6 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-#
-# Browser
-#
-
-if [[ "$OSTYPE" == darwin* ]]; then
-	export BROWSER='open'
-fi
 
 #
 # Editors
@@ -22,6 +15,15 @@ export VISUAL='nvim'
 export PAGER='less'
 export TERMINAL='kitty'
 export GOPATH="$HOME/documents/programming/GO"
+
+#
+# Browser
+#
+
+if [[ "$OSTYPE" == darwin* ]]; then
+	export BROWSER='open'
+  export GOPATH="$HOME/Documents/work/GO"
+fi
 
 #
 # Language
@@ -54,6 +56,15 @@ $path
 if [ -d $GOPATH/bin/ ]; then
   path=(
   $GOPATH/bin
+  $path
+  )
+fi
+
+# Kubectl plugins
+KREW_DIR=${KREW_ROOT:-$HOME/.krew}
+if [ -d $KREW_DIR/bin ]; then
+  path=(
+  $KREW_DIR/bin
   $path
   )
 fi

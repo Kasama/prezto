@@ -27,13 +27,18 @@ alias ll='exa --color=always -l --group-directories-first'
 alias la='exa --color=always -a --group-directories-first'
 alias lla='exa --color=always -la --group-directories-first'
 
+# KubeCtl
+alias kx='kubectx'
+alias kn='kubens'
+
 # Single Letter commands
 alias d='docker'
 alias k='kubectl'
 alias f='fuck'
+alias t='terraform'
 
 # SSH
-alias logica='ssh -p 2222 roberto@logica.dyndns.info'
+alias logica='ssh -p 2222 roberto@alegro.logicashop.com.br'
 
 # Git
 ga() {
@@ -46,3 +51,14 @@ ga() {
 alias gst='git status'
 alias gpull='git pull'
 alias gpu='git pull'
+
+# Watch with aliases
+alias watch='watch '
+
+# Work
+alias sprod='ssh -i ~/Documents/work/ops-config/ssh_keys/topfreegames-prod-vpc.pem -l ubuntu'
+alias sstag='ssh -i ~/Documents/work/ops-config/ssh_keys/topfreegames-stag-vpc.pem -l ubuntu'
+alias kstag='kubectl --context=stag'
+alias ki='kubectl --context=infra'
+alias kpus='kubectl --context=kube-prod-us-cilium.tfgco.com'
+alias koldprod='kubectl --context=kube-prod.tfgco.com'
