@@ -15,6 +15,7 @@ export VISUAL='nvim'
 export PAGER='less'
 export TERMINAL='kitty'
 export GOPATH="$HOME/documents/programming/GO"
+export CARGO_PATH="$HOME/.cargo"
 
 #
 # Browser
@@ -65,6 +66,14 @@ KREW_DIR=${KREW_ROOT:-$HOME/.krew}
 if [ -d $KREW_DIR/bin ]; then
   path=(
   $KREW_DIR/bin
+  $path
+  )
+fi
+
+# Rust Binaries
+if [ -d  $CARGO_PATH/bin/ ]; then
+  path=(
+  $CARGO_PATH/bin/
   $path
   )
 fi
