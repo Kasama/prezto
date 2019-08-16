@@ -10,7 +10,7 @@ CURRENT_BG='NONE'
 PRIMARY_FG=15
 
 # Characters
-DOCKER="\uf308"
+KUBERNETES="\u2388"
 SEGMENT_SEPARATOR="\ue0b0"
 PLUSMINUS="\u00b1"
 BRANCH="\ue0a0"
@@ -135,10 +135,10 @@ prompt_kubernetes() {
       fg=yellow
       bg=$PRIMARY_FG
     else
-      fg=green
-      bg=$PRIMARY_FG
+      fg=$PRIMARY_FG
+      bg=default
     fi
-    prompt_segment $fg $bg " $ctx "
+    prompt_segment $fg $bg " $KUBERNETES $ctx "
   fi
 }
 
