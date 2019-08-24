@@ -10,6 +10,7 @@ CURRENT_BG='NONE'
 PRIMARY_FG=15
 
 # Characters
+KUBERNETES="\u2388"
 SEGMENT_SEPARATOR="\ue0b0"
 PLUSMINUS="\u00b1"
 BRANCH="\ue0a0"
@@ -31,7 +32,7 @@ prompt_prompt() {
 	else;
 		color="green"
 	fi
-	print -n "\n%{%k%F{$color}%}%{%K{$PRIMARY_FG}%} $GEAR %{%k%F{$PRIMARY_FG}%}%{%k%}$SEGMENT_SEPARATOR%F{white}"
+	print -n "%{%k%F{$color}%}%{%K{$PRIMARY_FG}%} $GEAR %{%k%F{$PRIMARY_FG}%}%{%k%}$SEGMENT_SEPARATOR%F{white}"
 }
 
 # Begin a segment
@@ -57,7 +58,7 @@ prompt_end() {
 	else
 		print -n "%{%k%}"
 	fi
-	print -n "%{%f%}"
+	print -n "%{%f%}\n"
 	CURRENT_BG=''
 }
 
@@ -125,6 +126,22 @@ prompt_git() {
 	fi
 }
 
+# Kubernetes: context
+prompt_kubernetes() {
+  local ctx fg bg
+  if [ $+commands[kubectl] ]; then
+    ctx=$(kubectl config current-context)
+    if [[ $ctx =~ "prod" ]]; then
+      fg=yellow
+      bg=$PRIMARY_FG
+    else
+      fg=$PRIMARY_FG
+      bg=default
+    fi
+    prompt_segment $fg $bg " $KUBERNETES $ctx "
+  fi
+}
+
 # Dir: current working directory
 prompt_dir() {
 	prompt_segment blue white ' %~ '
@@ -150,6 +167,7 @@ prompt_agnoster_main() {
 	CURRENT_BG='NONE'
 	#prompt_status
 	prompt_context
+  prompt_kubernetes
 	prompt_dir
 	prompt_git
 	prompt_end
