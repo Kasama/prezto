@@ -33,7 +33,7 @@ alias k='kubectl'
 alias f='fuck'
 
 # SSH
-alias logica='ssh -p 2222 roberto@logica.dyndns.info'
+alias logica='ssh -p 2222 roberto@server.robertoalegro.com'
 
 # Git
 ga() {
