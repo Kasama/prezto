@@ -133,7 +133,7 @@ prompt_git() {
 # Kubernetes: context
 prompt_kubernetes() {
   local ctx fg bg
-  if [ $+commands[kubectl] ]; then
+  if [ "${+commands[kubectl]}" = "1" ]; then
     ctx=$(kubectl config current-context)
     if [[ $ctx =~ "prod" ]]; then
       fg=yellow

@@ -38,7 +38,7 @@ alias f='fuck'
 alias t='terraform'
 
 # SSH
-alias logica='ssh -p 2222 roberto@alegro.logicashop.com.br'
+alias logica='ssh -p 2222 roberto@server.robertoalegro.com'
 
 # Git
 ga() {
