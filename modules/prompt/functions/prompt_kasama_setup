@@ -18,6 +18,8 @@ DETACHED="\u27a6"
 CROSS="\u2718"
 LIGHTNING="\u26a1"
 GEAR="\u2699"
+HAPPY_FACE="∧_∧"
+SAD_FACE="X_X"
 DANGER="\u26a0"
 CURVY="\u2771"
 NEED_PUSH="⇡"
@@ -29,10 +31,12 @@ prompt_prompt() {
 	local color
 	if [[ $RETVAL -ne 0 ]]; then
 		color="red"
+    FACE=$SAD_FACE
 	else;
 		color="green"
+    FACE=$HAPPY_FACE
 	fi
-	print -n "%{%k%F{$color}%}%{%K{$PRIMARY_FG}%} $GEAR %{%k%F{$PRIMARY_FG}%}%{%k%}$SEGMENT_SEPARATOR%F{white}"
+	print -n "%{%k%F{$color}%}%{%K{$PRIMARY_FG}%} $FACE %{%k%F{$PRIMARY_FG}%}%{%k%}$SEGMENT_SEPARATOR%F{white}"
 }
 
 # Begin a segment
