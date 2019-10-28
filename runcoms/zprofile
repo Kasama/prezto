@@ -17,6 +17,11 @@ export TERMINAL='kitty'
 export GOPATH="$HOME/documents/programming/GO"
 export CARGO_PATH="$HOME/.cargo"
 
+# Use ag for FZF
+if [[ ! -z $commands[ag] ]]; then
+  export FZF_DEFAULT_COMMAND='ag -g ""'
+fi
+
 #
 # Browser
 #
@@ -120,6 +125,20 @@ if [[ -d SCRIPTS_PATH ]]; then
 	#PATH="$PATH:$SCRIPTS_PATH"
 	path=(
 	$SCRIPTS_PATH
+	$path
+	)
+fi
+
+# OCaml
+OPAM_PATH="$HOME/.opam"
+if [[ -d OPAM_PATH ]]; then
+	#PATH="$PATH:$OPAM_PATH"
+  OPAM_SWITCH_PREFIX='/home/roberto/.opam/default'; export OPAM_SWITCH_PREFIX;
+  CAML_LD_LIBRARY_PATH='/home/roberto/.opam/default/lib/stublibs:Updated by package ocaml'; export CAML_LD_LIBRARY_PATH;
+  OCAML_TOPLEVEL_PATH='/home/roberto/.opam/default/lib/toplevel'; export OCAML_TOPLEVEL_PATH;
+  MANPATH="$MANPATH:$OPAM_PATH/default/man"; export MANPATH;
+	path=(
+	$OPAM_PATH/default/bin
 	$path
 	)
 fi
