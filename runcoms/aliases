@@ -16,9 +16,22 @@ alias open='rifle'
 alias octave='octave -q --no-gui'
 alias kaboom='poweroff'
 alias amdgpu='DRI_PRIME=1'
-alias clip='xclip -selection clipboard'
 alias cat='bat --theme TwoDark'
 alias yaml='bat --theme TwoDark -l yaml'
+
+clip() {
+  COMMAND="xclip -selection clipboard"
+  if [[ "$OSTYPE" =~ "darwin*" ]]; then
+    if [ $# -ge 1 ] && [ "$1" = "-o" ]; then
+      shift
+      COMMAND="pbpaste"
+    else
+      COMMAND="pbcopy"
+    fi
+  fi
+
+  $COMMAND $@
+}
 
 # ls
 alias l='exa --color=always -a --group-directories-first'
