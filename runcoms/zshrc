@@ -19,6 +19,11 @@ if [ -f "${ZDOTDIR:-$HOME}/.zprezto/runcoms/aliases" ]; then
 	source "${ZDOTDIR:-$HOME}/.zprezto/runcoms/aliases"
 fi
 
+# Load up Cod.
+if (( $+commands[screen] )); then
+  source <(cod init $$ zsh)
+fi
+
 #The fuck
 if $(which thefuck 2>&1 1>/dev/null); then
 	eval $(thefuck --alias)

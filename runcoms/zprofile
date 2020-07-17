@@ -121,7 +121,7 @@ fi
 
 # My scripts
 SCRIPTS_PATH="$HOME/scripts"
-if [[ -d SCRIPTS_PATH ]]; then
+if [[ -d $SCRIPTS_PATH ]]; then
 	#PATH="$PATH:$SCRIPTS_PATH"
 	path=(
 	$SCRIPTS_PATH
@@ -131,14 +131,16 @@ fi
 
 # OCaml
 OPAM_PATH="$HOME/.opam"
-if [[ -d OPAM_PATH ]]; then
-	#PATH="$PATH:$OPAM_PATH"
-  OPAM_SWITCH_PREFIX='/home/roberto/.opam/default'; export OPAM_SWITCH_PREFIX;
-  CAML_LD_LIBRARY_PATH='/home/roberto/.opam/default/lib/stublibs:Updated by package ocaml'; export CAML_LD_LIBRARY_PATH;
-  OCAML_TOPLEVEL_PATH='/home/roberto/.opam/default/lib/toplevel'; export OCAML_TOPLEVEL_PATH;
-  MANPATH="$MANPATH:$OPAM_PATH/default/man"; export MANPATH;
+if [[ -d $OPAM_PATH ]] && which opam >/dev/null; then
+  eval $(opam env)
+fi
+
+# Cuda
+CUDA_BIN_PATH="/opt/cuda/bin"
+if [[ -d $CUDA_PATH ]]; then
+	#PATH="$PATH:$CUDA_BIN_PATH"
 	path=(
-	$OPAM_PATH/default/bin
+	$CUDA_BIN_PATH
 	$path
 	)
 fi
