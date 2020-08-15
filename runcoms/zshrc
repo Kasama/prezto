@@ -24,6 +24,11 @@ if (( $+commands[screen] )); then
   source <(cod init $$ zsh)
 fi
 
+# Source local and specific zshrc file
+if [ -f "${HOME}/.local/zshrc" ]; then
+  source "${HOME}/.local/zshrc"
+fi
+
 #The fuck
 if $(which thefuck 2>&1 1>/dev/null); then
 	eval $(thefuck --alias)
@@ -72,3 +77,6 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/vault vault
