@@ -48,7 +48,7 @@ jcurl() {
 
 # Get my ip
 myip() {
-  curl v4.ifconfig.co
+  dig +short myip.opendns.com @resolver1.opendns.com
 }
 
 tmpdir() {
