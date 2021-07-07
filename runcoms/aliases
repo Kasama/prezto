@@ -40,6 +40,9 @@ alias ll='exa --color=always -l --group-directories-first'
 alias la='exa --color=always -a --group-directories-first'
 alias lla='exa --color=always -la --group-directories-first'
 
+# curl
+alias curl='curlie'
+
 # KubeCtl
 alias kx='kubectx'
 alias kn='kubens'
