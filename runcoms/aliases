@@ -34,11 +34,11 @@ clip() {
 }
 
 # ls
-alias l='exa --color=always -a --group-directories-first'
-alias ls='exa --color=always --group-directories-first'
-alias ll='exa --color=always -l --group-directories-first'
-alias la='exa --color=always -a --group-directories-first'
-alias lla='exa --color=always -la --group-directories-first'
+alias l='exa --color=always -a --group-directories-first --icons'
+alias ls='exa --color=always --group-directories-first --icons'
+alias ll='exa --color=always -l --group-directories-first --icons'
+alias la='exa --color=always -a --group-directories-first --icons'
+alias lla='exa --color=always -la --group-directories-first --icons'
 
 # curl
 alias curl='curlie'
