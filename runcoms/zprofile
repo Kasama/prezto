@@ -176,3 +176,6 @@ fi
 TMPPREFIX="${TMPDIR%/}/zsh"
 
 export TERM=tmux-256color
+
+# Export monitor for polybar
+export MONITOR=HDMI-1
