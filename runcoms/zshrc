@@ -20,8 +20,13 @@ if [ -f "${ZDOTDIR:-$HOME}/.zprezto/runcoms/aliases" ]; then
 fi
 
 # Load up Cod.
-if (( $+commands[screen] )); then
-  source <(cod init $$ zsh)
+# if (( $+commands[screen] )); then
+#   source <(cod init $$ zsh)
+# fi
+
+# Load Zoxide
+if (( $+commands[zoxide] )); then
+  eval "$(zoxide init --cmd cd zsh)"
 fi
 
 # Source local and specific zshrc file
@@ -55,6 +60,9 @@ tmpdir() {
   cd $(mktemp -d)
 }
 
+# Accept auto suggestion
+bindkey '^y' autosuggest-accept
+
 #######################################
 # turn off tracing
 #unsetopt xtrace
@@ -80,3 +88,19 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/vault vault
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/usr/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/usr/etc/profile.d/conda.sh" ]; then
+        . "/usr/etc/profile.d/conda.sh"
+    else
+        export PATH="/usr/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
