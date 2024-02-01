@@ -162,7 +162,14 @@ fi
 
 
 # Use GNUBINS in MacOS
-PATH="$GNUBINSPATH:$PATH"
+if [[ -n "$GNUBINSPATH" ]]; then
+  PATH="$GNUBINSPATH:$PATH"
+fi
+
+# Rust ESP support
+if [[ -f "$HOME/export-esp.sh" ]]; then
+  source "$HOME/export-esp.sh"
+fi
 
 #
 # Temporary Files
