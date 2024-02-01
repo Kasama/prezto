@@ -12,3 +12,4 @@ fi
 
 VIMRC="~/.config/nvim/init.vim"
 export __GLVND_DISALLOW_PATCHING=1
+. "$HOME/.cargo/env"

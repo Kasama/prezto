@@ -185,4 +185,10 @@ TMPPREFIX="${TMPDIR%/}/zsh"
 export TERM=tmux-256color
 
 # Export monitor for polybar
-export MONITOR=HDMI-1
+if [ "$(hostname)" = "Wild-Roberto" ]; then
+  export MONITOR=eDP-1
+else
+  export MONITOR=HDMI-1
+fi
+# Doesn't work because it runs before X
+# export MONITOR=$(xrandr --listactivemonitors | tail -1 | awk '{print $4}')
