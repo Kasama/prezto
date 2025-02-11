@@ -18,6 +18,7 @@ alias kaboom='poweroff'
 alias amdgpu='DRI_PRIME=1'
 alias cat='bat --theme TwoDark'
 alias yaml='bat --theme TwoDark -l yaml'
+alias chmox='chmod +x'
 
 clip() {
   COMMAND="xclip -selection clipboard"
@@ -44,8 +45,8 @@ alias lla='exa --color=always -la --group-directories-first --icons'
 alias curl='curlie'
 
 # KubeCtl
-alias kx='kubectx'
-alias kn='kubens'
+# alias kx='kubectx'
+# alias kn='kubens'
 
 # Single Letter commands
 alias d='docker'

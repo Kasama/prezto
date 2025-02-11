@@ -13,7 +13,7 @@
 export EDITOR='nvim'
 export VISUAL='nvim'
 export PAGER='less'
-export TERMINAL='kitty'
+export TERMINAL='ghostty'
 export GOPATH="$HOME/documents/programming/GO"
 export CARGO_PATH="$HOME/.cargo"
 
@@ -131,7 +131,7 @@ fi
 
 # OCaml
 OPAM_PATH="$HOME/.opam"
-if [[ -d $OPAM_PATH ]] && which opam >/dev/null; then
+if [[ -d $OPAM_PATH ]] && [[ ! -z $commands[opam] ]]; then
   eval $(opam env)
 fi
 
