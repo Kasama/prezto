@@ -79,3 +79,8 @@ alias kstag='kubectl --context=stag'
 alias ki='kubectl --context=infra'
 alias kpus='kubectl --context=kube-prod-us-cilium.tfgco.com'
 alias koldprod='kubectl --context=kube-prod.tfgco.com'
+
+# Env vars
+if [[ ! -z $commands[direnv] ]]; then
+  alias tmux='direnv exec / tmux'
+fi

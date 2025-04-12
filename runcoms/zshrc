@@ -97,6 +97,7 @@ complete -o nospace -C /usr/local/bin/vault vault
 export PNPM_HOME="/home/robertoalegro/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/usr/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -112,3 +113,7 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# Env vars
+if [[ ! -z $commands[direnv] ]]; then
+  eval "$(direnv hook zsh)"
+fi
