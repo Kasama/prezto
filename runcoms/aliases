@@ -10,14 +10,22 @@ alias halt='sudo systemctl halt'
 alias ccsm='LC_ALL="en_US.UTF-8" ccsm'
 alias sintel='sudo pxp_switch_catalyst intel && sudo systemctl start sddm'
 alias samd='sudo pxp_switch_catalyst amd && sudo systemctl start sddm'
+
+if [[ ! -z $commands[nvim] ]]; then
 alias vim='nvim'
 alias vimf='nvim $(find . | fzf)'
+fi
+
 alias open='rifle'
 alias octave='octave -q --no-gui'
 alias kaboom='poweroff'
 alias amdgpu='DRI_PRIME=1'
+
+if [[ ! -z $commands[bat] ]]; then
 alias cat='bat --theme TwoDark'
 alias yaml='bat --theme TwoDark -l yaml'
+fi
+
 alias chmox='chmod +x'
 
 clip() {
@@ -35,14 +43,18 @@ clip() {
 }
 
 # ls
+if [[ ! -z $commands[exa] ]]; then
 alias l='exa --color=always -a --group-directories-first --icons'
 alias ls='exa --color=always --group-directories-first --icons'
 alias ll='exa --color=always -l --group-directories-first --icons'
 alias la='exa --color=always -a --group-directories-first --icons'
 alias lla='exa --color=always -la --group-directories-first --icons'
+fi
 
 # curl
+if [[ ! -z $commands[curlie] ]]; then
 alias curl='curlie'
+fi
 
 # KubeCtl
 # alias kx='kubectx'
