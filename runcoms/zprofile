@@ -187,6 +187,8 @@ export TERM=tmux-256color
 # Export monitor for polybar
 if [ "$(hostname)" = "Wild-Roberto" ]; then
   export MONITOR=eDP-1
+elif [ "$(hostname)" = "kasama-acer" ]; then
+  export MONITOR=eDP-1
 else
   export MONITOR=HDMI-1
 fi

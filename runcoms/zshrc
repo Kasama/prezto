@@ -117,3 +117,8 @@ unset __conda_setup
 if [[ ! -z $commands[direnv] ]]; then
   eval "$(direnv hook zsh)"
 fi
+
+# Mise config
+if [[ ! -z $commands[mise] ]]; then
+  eval "$(mise activate zsh)"
+fi
