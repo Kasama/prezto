@@ -39,9 +39,6 @@ if $(which thefuck 2>&1 1>/dev/null); then
 	eval $(thefuck --alias)
 fi
 
-# SSH agent
-eval `ssh-agent -s` 2>&1 1>/dev/null
-
 mind.blow() {
 	poweroff
 }
