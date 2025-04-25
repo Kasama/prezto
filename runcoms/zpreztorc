@@ -49,6 +49,7 @@ zstyle ':prezto:load' pmodule \
   'history-substring-search' \
   'autosuggestions' \
   'prompt' \
+  'tailscale-fzf' \
   'auto-dir-switcher'
 
 #
