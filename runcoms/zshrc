@@ -5,8 +5,8 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 HISTFILE=~/.histfile
-HISTSIZE=9999
-SAVEHIST=9999
+HISTSIZE=999999
+SAVEHIST=999999
 bindkey -v
 
 # Source Prezto.
@@ -118,4 +118,32 @@ fi
 # Mise config
 if [[ ! -z $commands[mise] ]]; then
   eval "$(mise activate zsh)"
+
+  # Allow secrets to be loaded into the environment by using `secret-tool`
+  # this integrates with any secret manager that used dbus, such as keepassxc, gnome-keyring, etc
+  # to use it, add an env var value starting with `secret://` to your env
+
+  function _mise_hook {
+    local diff=${__MISE_DIFF}
+    source <(command mise hook-env -s zsh)
+
+    if [[ ${diff} == ${__MISE_DIFF} ]]; then
+      for update in $(env | grep --color=never "secret://"); do
+        local var_name=$(cut -d'=' -f1 <<< "$update")
+        local var_value=$(cut -d'=' -f2 <<< "$update")
+        local value=$(sed 's/\(.*\)\//\1 /' <<< "${var_value#secret://}")
+        local resolved=$(bash -c "secret-tool lookup $value")
+        eval "export ${var_name}=${resolved}"
+      done
+    fi
+  }
+
+  function mise_parse_env {
+    rq -m < <(
+      zcat -q < <(
+        printf $'\x1f\x8b\x08\x00\x00\x00\x00\x00'
+        base64 -d <<< "$1"
+      )
+    )
+  }
 fi
