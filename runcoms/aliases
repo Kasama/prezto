@@ -62,7 +62,12 @@ fi
 
 # Single Letter commands
 alias d='docker'
+if [[ ! -z $commands[kubecolor] ]]; then
+alias k='kubecolor'
+compdef kubecolor=kubectl
+else
 alias k='kubectl'
+fi
 alias f='fuck'
 alias t='terraform'
 
