@@ -1,5 +1,6 @@
 if ! type "up" > /dev/null; then
-  echo "zsh-up:'up' command not found." >&2
+  # echo "zsh-up:'up' command not found." >&2
+  return 0
 fi
 
 zle-upify() {

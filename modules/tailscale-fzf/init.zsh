@@ -1,7 +1,7 @@
 FZF_TAILSCALE_COMMAND="tailscale"
 
 if [[ -z $commands[${FZF_TAILSCALE_COMMAND}] ]]; then
-  exit 0
+  return 0
 fi
 
 tailscale-ssh-select-widget() {
