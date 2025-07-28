@@ -120,6 +120,10 @@ elif [[ "$OSTYPE" == cygwin* ]]; then
 else
   alias o='xdg-open'
 
+  if [ -n "$WAYLAND_DISPLAY" ] && (( $+commands[wl-copy] )); then
+    alias pbcopy='wl-copy'
+    alias pbpaste='wl-paste'
+  fi
   if (( $+commands[xclip] )); then
     alias pbcopy='xclip -selection clipboard -in'
     alias pbpaste='xclip -selection clipboard -out'
