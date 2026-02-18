@@ -91,7 +91,7 @@ autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/vault vault
 
 # pnpm
-export PNPM_HOME="/home/robertoalegro/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
@@ -116,16 +116,17 @@ if [[ ! -z $commands[direnv] ]]; then
 fi
 
 # Mise config
-if [[ ! -z $commands[mise] ]]; then
+if [[ ! -z $commands[mise] ]] && [[ -z "$SSH_CLIENT" ]]; then
   eval "$(mise activate zsh)"
 
-  # Allow secrets to be loaded into the environment by using `secret-tool`
+  # Allow secrets to be loaded into the environment by using `secret-tool` locally
   # this integrates with any secret manager that used dbus, such as keepassxc, gnome-keyring, etc
   # to use it, add an env var value starting with `secret://` to your env
+  #
+  # Remote sessions will not have secrets on env vars
 
-  function _mise_hook {
+  function _update_mise_secrets {
     local diff=${__MISE_DIFF}
-    source <(command mise hook-env -s zsh)
 
     if [[ ${diff} == ${__MISE_DIFF} ]]; then
       for update in $(env | grep --color=never "secret://"); do
@@ -137,6 +138,8 @@ if [[ ! -z $commands[mise] ]]; then
       done
     fi
   }
+
+  add-zsh-hook precmd _update_mise_secrets
 
   function mise_parse_env {
     rq -m < <(
