@@ -51,6 +51,7 @@ zstyle ':prezto:load' pmodule \
   'prompt' \
   'tailscale-fzf' \
   'zsh-up' \
+  'cmdex' \
   'auto-dir-switcher'
 
 #
