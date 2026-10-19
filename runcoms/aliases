@@ -44,11 +44,11 @@ clip() {
 
 # ls
 if [[ ! -z $commands[exa] ]]; then
-alias l='exa --color=always -a --group-directories-first --icons'
-alias ls='exa --color=always --group-directories-first --icons'
-alias ll='exa --color=always -l --group-directories-first --icons'
-alias la='exa --color=always -a --group-directories-first --icons'
-alias lla='exa --color=always -la --group-directories-first --icons'
+alias l='exa --color=always -a --group-directories-first --icons=auto'
+alias ls='exa --color=always --group-directories-first --icons=auto'
+alias ll='exa --color=always -l --group-directories-first --icons=auto'
+alias la='exa --color=always -a --group-directories-first --icons=auto'
+alias lla='exa --color=always -la --group-directories-first --icons=auto'
 fi
 
 # curl
